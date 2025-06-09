@@ -44,7 +44,7 @@
 ## 회원(User) 클래스 명세서
 
 <p align="center">
-  <img src="https://github.com/KANGJIHYEON1121/kh-db-kiosk/issues/1#issue-3130264481" alt="ERD Diagram" width="700"/>
+  <img width="794" alt="Image" src="https://github.com/user-attachments/assets/fc4549b1-522c-478f-a61e-827a132065ff" />
 </p>
 
 ---
