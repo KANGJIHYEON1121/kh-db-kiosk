@@ -43,13 +43,7 @@
 
 ## 회원(User) 클래스 명세서
 
-| 번호 |    변수명    |    한글명    |   타입    | 크기(byte) | Null 허용 | 유일키 (unique) | 키(PK) | 중복검사 |
-| :--: | :----------: | :----------: | :-------: | :--------: | :-------: | :-------------: | :----: | :------: |
-|  1   |    userId    |  회원아이디  |  String   |     4      |     N     |                 |   Y    |   Yes    |
-|  2   | userPassword | 회원비밀번호 |  String   |     4      |     N     |        N        |        |   Yes    |
-|  3   |   userName   |   회원성명   |  String   |     4      |     N     |        N        |        |          |
-|  4   | userPhoneNum |   전화번호   |  String   |     4      |     N     |        Y        |        |          |
-|  5   |   userCart   |   장바구니   | ArrayList |     -      |     N     |        N        |        |          |
+<img src = "https://github.com/KANGJIHYEON1121/kh-db-kiosk/issues/1#issue-3130264481"/>
 
 ---
 
