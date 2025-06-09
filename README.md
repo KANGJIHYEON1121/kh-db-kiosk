@@ -1,18 +1,150 @@
-## Getting Started
+# 주문 관리 시스템
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d45a7851-6d26-42c6-be06-713fb253454c" alt="Image" width="800" height="500" />
+</p>
 
-## Folder Structure
+**본 프로그램은 매장 운영을 지원하기 위한 간단한 POS 시스템으로, 주문, 장바구니 관리, 결제, 매출 확인 등의 기능을 통해 사용자와 관리자의 편의를 제공합니다.**
 
-The workspace contains two folders by default, where:
+---
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+**주문 관리 시스템 프로젝트는 이 시스템은 매장 운영을 지원하기 위한 간단한 POS(Point of Sale) 프로그램입니다.
+사용자는 메뉴를 선택하여 장바구니에 담고, 결제 방식을 선택하여 주문을 완료할 수 있습니다.
+관리자는 메뉴를 추가, 수정, 삭제하고, 회원 목록을 관리하며, 일일 매출을 확인할 수 있습니다.
+전체적으로 매장의 주문 및 매출 관리를 효율적으로 돕는 것을 목표로 합니다. 목표로 제작되었습니다.**
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+---
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## ⏳ 제작 기간
 
-## Dependency Management
+- 25/06/05 ~ 25/06/08
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+  ***
+
+## 🛠 기술 스택
+
+### 🔷 사용 언어
+
+<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/>
+
+### 🧰 개발 도구 / IDE
+
+<img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=eclipseide&logoColor=white"/><img src="https://img.shields.io/badge/CMD-000000?style=for-the-badge&logo=windows&logoColor=white"/>
+
+### 🗄 데이터베이스
+
+<img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"/>
+
+### 💻 운영체제
+
+<img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"/>
+
+---
+
+## 회원(User) 클래스 명세서
+
+| 번호 |    변수명    |    한글명    |   타입    | 크기(byte) | Null 허용 | 유일키 (unique) | 키(PK) | 중복검사 |
+| :--: | :----------: | :----------: | :-------: | :--------: | :-------: | :-------------: | :----: | :------: |
+|  1   |    userId    |  회원아이디  |  String   |     4      |     N     |                 |   Y    |   Yes    |
+|  2   | userPassword | 회원비밀번호 |  String   |     4      |     N     |        N        |        |   Yes    |
+|  3   |   userName   |   회원성명   |  String   |     4      |     N     |        N        |        |          |
+|  4   | userPhoneNum |   전화번호   |  String   |     4      |     N     |        Y        |        |          |
+|  5   |   userCart   |   장바구니   | ArrayList |     -      |     N     |        N        |        |          |
+
+---
+
+## 📑 로그인 화면
+
+- 로그인 기능
+- 회원가입 기능(이름, ID, password, 전화번호 입력)
+
+---
+
+## 📑 사용자 메뉴
+
+- 1.메뉴 선택
+- 2.장바구니 확인
+- 3.장바구니 초기화
+- 4.결재하기
+- 5.관리자 메뉴
+- 6.로그아웃
+- 7.프로그램 종료
+
+---
+
+## 📑 관리자 메뉴
+
+- 1.회원 리스트 확인
+- 2.메뉴 리스트 확인
+- 3.메뉴 추가
+- 4.메뉴 삭제
+- 5.메뉴 수정
+- 6.하루 매출 확인
+- 7.사용자 모드 전환
+
+---
+
+## 📑 기능 목록
+
+### 🛒 사용자 기능
+
+- **메뉴 선택**  
+  → 등록된 메뉴 목록을 확인한 후, 원하는 메뉴의 번호를 입력하여 장바구니에 담을 수 있는 기능을 제공합니다.
+
+- **장바구니 확인**  
+  → 사용자가 장바구니에 담은 모든 메뉴를 한눈에 확인할 수 있도록 리스트 형태로 출력해주는 기능입니다.
+
+- **장바구니 초기화**  
+  → 현재 장바구니에 담긴 모든 메뉴를 초기화하며, 빈 장바구니일 경우 예외 처리를 통해 오류를 방지합니다.
+
+- **결제하기**  
+  → 장바구니에 담긴 메뉴들의 총 금액을 계산하여 최종 결제 금액으로 출력하며, 결제 완료 처리를 포함합니다.
+
+- **로그아웃**  
+  → 현재 로그인된 사용자 정보를 초기화하고, 프로그램을 로그인 화면 또는 시작 단계로 되돌리는 기능입니다.
+
+- **프로그램 종료**  
+  → 현재 실행 중인 프로그램을 안전하게 종료하며, 필요한 경우 종료 전 안내 메시지를 출력합니다.
+
+### 👤 관리자 기능
+
+- **관리자 메뉴 접속**  
+  → 사전에 등록된 관리자 ID로 로그인한 사용자만 접근 가능하며, 관리 기능 수행을 위한 권한 확인 과정을 포함합니다.
+
+- **회원 리스트 확인**  
+  → 시스템에 등록된 모든 회원의 정보를 확인할 수 있으며, 회원 ID, 이름 등 핵심 정보를 테이블 형태로 제공합니다.
+
+- **메뉴 리스트 확인**  
+  → 현재 등록되어 있는 전체 메뉴 정보를 조회하며, 메뉴 번호, 이름, 가격 등의 상세 정보가 함께 출력됩니다.
+
+- **메뉴 추가**  
+  → 새롭게 판매할 메뉴의 이름, 가격 등을 입력 받아 시스템에 등록할 수 있는 기능을 제공합니다.
+
+- **메뉴 삭제**  
+  → 기존 메뉴 목록에서 선택한 항목을 삭제하며, 삭제 시 유효성 검사 및 예외 처리를 통해 안정성을 확보합니다.
+
+- **메뉴 수정**  
+  → 등록된 메뉴의 이름, 가격 등의 정보를 수정할 수 있으며, 특정 메뉴 선택 후 변경 사항을 적용합니다.
+
+- **하루 매출 확인**  
+  → 현재까지 누적된 하루 매출 총액을 확인할 수 있으며, 결제 내역을 기반으로 정확한 합산을 제공합니다.
+
+- **사용자 모드 전환**  
+  → 관리자 모드에서 일반 사용자 인터페이스로 전환하여, 다시 사용자 기능을 사용할 수 있도록 설정합니다.
+
+## 📑 페이지 구성
+
+- **로그인 화면**  
+  → 프로그램 실행 시 가장 먼저 나타나는 화면으로, 사용자 또는 관리자로 로그인할 수 있는 진입점 역할을 합니다.
+
+  - **사용자 메뉴**  
+    → 일반 사용자로 로그인한 경우 접근 가능하며, 메뉴 선택부터 결제까지의 주요 기능을 사용할 수 있는 화면입니다.
+
+  - **관리자 모드**  
+    → 관리자 계정으로 로그인 시 진입 가능하며, 시스템 전체를 관리할 수 있는 고급 기능들을 포함하고 있습니다.
+
+    - **관리자 메뉴**  
+      → 메뉴 및 회원 정보 관리, 매출 확인 등 관리자 권한이 필요한 기능들을 실행할 수 있는 전용 화면입니다.
+
+- **회원가입**  
+  → 새로운 사용자가 시스템에 등록할 수 있는 화면으로, 필수 정보를 입력하여 계정을 생성하는 기능을 제공합니다.
